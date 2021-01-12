@@ -1,0 +1,83 @@
+﻿<Window x:Class="BiieX_GeminG.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BiieX_GeminG"
+        mc:Ignorable="d"
+        Title="BiieX GaminG Store" Height="696" Width="440" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,4" HorizontalAlignment="Center" Width="1011" Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="217*"/>
+            <ColumnDefinition Width="387*"/>
+            <ColumnDefinition Width="255*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="143*"/>
+            <RowDefinition Height="408*"/>
+        </Grid.RowDefinitions>
+        <Label Content="BiieX GaminG" HorizontalAlignment="Left" Margin="200,47,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" FontFamily="Baskerville Old Face" FontStyle="Normal" Grid.Column="1" Width="306" Grid.ColumnSpan="2" Foreground="White"/>
+        <Label Content="Keranjang Belanja" HorizontalAlignment="Left" Margin="30,89,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.384" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="414" Margin="155,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="390" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <ListBox x:Name="listKeranjangBelanja" HorizontalAlignment="Left" Height="218" VerticalAlignment="Top" Width="362" Margin="169,10,0,0" MouseDoubleClick="onlistKeranjangBelanjaDoubleClicked" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Background="#FFECE213" SelectionChanged="listKeranjangBelanja_SelectionChanged" Foreground="Black" BorderBrush="#FF1A2E6C">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300" />
+
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Text="{Binding item}" TextAlignment="Left"/>
+                        <TextBlock Grid.Row="1" Text="{Binding price}"  TextAlignment="Right"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="362" Margin="171,146,0,0" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid Margin="0,2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="ITEM" TextAlignment="Center" FontSize="16" Margin="0,-3,0,2" FontWeight="Bold" FontStyle="Normal" FontFamily="Baskerville Old Face" Foreground="White"/>
+                <TextBlock Grid.Column="1" Text="HARGA" TextAlignment="Center" FontSize="16" Margin="45,-3,0,2" HorizontalAlignment="Left" Width="140" FontWeight="Bold" FontStyle="Normal" FontFamily="Baskerville Old Face" Foreground="White">
+                    <TextBlock.TextDecorations>
+                        <TextDecoration/>
+                    </TextBlock.TextDecorations>
+                </TextBlock>
+
+            </Grid>
+        </ListBox>
+        <Label Content="SubTotal" HorizontalAlignment="Left" Margin="171,397,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White"/>
+        <Label Content="Promo" HorizontalAlignment="Left" Margin="171,371,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
+        <Label Content="TOTAL" HorizontalAlignment="Left" Margin="155,425,0,0" VerticalAlignment="Top" Width="147" RenderTransformOrigin="0.392,0.528" Grid.Row="1" Grid.Column="1" FontSize="36" FontWeight="Bold" Grid.ColumnSpan="2" FontFamily="Baskerville Old Face" Foreground="White"/>
+        <Label x:Name="labelSubTotal" Content="Rp 79.000" HorizontalAlignment="Left" Margin="243,397,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Foreground="White"/>
+        <Label x:Name="labelPromo" Content="Rp 90.000" HorizontalAlignment="Left" Margin="244,371,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Width="68" Foreground="White"/>
+        <Label x:Name="labelTotal" Content="Rp 99.000" HorizontalAlignment="Left" Margin="208,425,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" FontSize="20" Foreground="White"/>
+        <Button Content="MENU" HorizontalAlignment="Left" Height="45" Margin="93,264,0,0" VerticalAlignment="Top" Width="86" Click="onDaftarMenuClicked" Grid.Column="2" FontFamily="Baskerville Old Face" FontWeight="Bold" FontSize="16" BorderBrush="#FFFBB010" Grid.Row="1"/>
+        <Label Content="Voucher" HorizontalAlignment="Left" Margin="169,337,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="29" Foreground="White"/>
+        <Button x:Name="btnGantiPromo" Content="GANTI" HorizontalAlignment="Left" Height="29" Margin="236,337,0,0" VerticalAlignment="Top" Width="78" Click="onBtnGantiPromoClicked" Grid.Row="1" Grid.Column="2" FontFamily="Baskerville Old Face" FontWeight="Bold"/>
+        <Separator HorizontalAlignment="Left" Height="3" Margin="169,371,0,0" VerticalAlignment="Top" Width="362" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Separator HorizontalAlignment="Left" Height="3" Margin="169,425,0,0" VerticalAlignment="Top" Width="362" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="listPromo" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="160" Margin="56,337,0,0" Grid.Row="1" Grid.Column="2" FontSize="8" IsEnabled="False" FontWeight="Normal" FontStyle="Italic" Background="#FFECE213" Foreground="#F4C31212">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350" />
+
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Text="{Binding diskon}" TextAlignment="Left"/>
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="STORE&#xD;&#xA;" Grid.Column="2" HorizontalAlignment="Left" Margin="67,97,0,0" VerticalAlignment="Top" Width="193" Height="75" Foreground="White" FontFamily="Baskerville Old Face" FontWeight="Bold" FontSize="36"/>
+
+
+    </Grid>
+</Window>

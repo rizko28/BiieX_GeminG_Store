@@ -1,0 +1,26 @@
+﻿<Window x:Class="BiieX_GeminG.Promo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:STORE"
+        mc:Ignorable="d"
+        Title="Voucher" Height="202" Width="294" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Left" Width="431" Margin="-7,0,0,0">
+        <ListBox x:Name="listBoxDaftarPromo" Margin="10,0,0,0" MouseDoubleClick="onlistBoxDaftarPromoClicked" HorizontalAlignment="Left" Width="288" Background="#FFECE213">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350" />
+
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Text="{Binding diskon}" TextAlignment="Left" FontSize="14"/>
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
